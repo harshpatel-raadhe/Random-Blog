@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+    <div>
+        <div>
+           <a href="/" ><h1>Blog Post</h1></a>
+        </div>
+        <div>
+            <p>A Random blog site</p>
+            <%- include('./partials/nav.ejs') %>
+        </div>
+
+        <div class="blogs content" >
+            <h2>All Blogs</h2>
+            <% if (blog.length > 0) { %>
+                <% blog.forEach(blog => { %>
+                    <a class="single" href="/blogs/<%= blog._id %> ">
+                    <h3 class="title"><%= blog.title %></h3>
+                    <p class="snippet"><%= blog.snippet %></p>
+                </a>
+                <% }) %>
+                <% } %>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
